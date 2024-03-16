@@ -1,11 +1,7 @@
 'use strict';
 
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = 'Correct Number';
-// document.querySelector('.number').textContent = '17';
-// document.querySelector('.score').textContent = '1993';
-// document.querySelector('.guess').value = 23;
 let secretNumber = Math.floor(Math.random() * 20) + 1;
+let highScore = 0;
 
 let score = 20;
 
@@ -26,6 +22,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('.number').style.width = '30rem';
     document.querySelector('.number').textContent = secretNumber;
+
+    if (score > highScore) {
+      highScore = score;
+      console.log('The high score is: ', score);
+      document.querySelector('.highscore').textContent = highScore;
+    }
 
     //guess too high
   } else if (guess > secretNumber) {
